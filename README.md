@@ -1,32 +1,16 @@
-# flutter_template
+# bds_appdata
 
 A new Flutter project.
 
 ## Getting Started
 
-#Setup environment:(https://flutter.dev/docs/get-started/install)
-    1.Get the Flutter SDK
-        Download the following installation bundle to get the latest stable release of the Flutter SDK:
-        https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.12.13+hotfix.8-stable.zip
-    2.Extract the file in the desired location, for example:
-        cd ~/development
-        unzip ~/Downloads/flutter_macos_v1.12.13+hotfix.8-stable.zip
-    3.Add the flutter tool to your path:
-        export PATH="$PATH:`pwd`/flutter/bin"
-#Run flutter doctor
-     Run the following command to see if there are any dependencies you need to install to complete the setup (for verbose output, add the -v flag):
-        flutter doctor
-#Set up an editor(optional)
-        install IntelliJ IDEA Community
-#Install the Flutter and Dart plugins
-           To install these:
-                  Start  IntelliJ IDEA Community.
-                 Open plugin preferences (Preferences > Plugins on macOS, File > Settings > Plugins on Windows & Linux).
-                 Select Marketplace, select the Flutter plugin and click Install.
-                 Click Yes when prompted to install the Dart plugin.
-                 Click Restart when prompted.
-#Run project:
-_Open project by Intellij
-_Open file pubspec.yaml
-_Touch on package get button
-_Run project
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

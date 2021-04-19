@@ -1,2 +1,0 @@
-# TemplateFlutterApp
-TemplateFlutterApp
