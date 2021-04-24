@@ -31,7 +31,6 @@ class HocadeAppBar extends StatelessWidget {
               color: Palette.hocadePurple,
             ),
           ),
-          SizedBox(width: 8.0),
           IconButton(
             onPressed: _onRightMenuPress,
             icon: Transform.rotate(
