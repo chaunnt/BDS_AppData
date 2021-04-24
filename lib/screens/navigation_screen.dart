@@ -1,5 +1,6 @@
 import 'package:bds_appdata/config/palette.dart';
 import 'package:bds_appdata/screens/screens.dart';
+import 'package:bds_appdata/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -34,8 +35,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
+        appBar: PreferredSize(
+          child: HocadeAppBar(),
+          preferredSize: Size(
+            double.infinity,
+            screenSize.height / 10,
+          ),
+        ),
         body: IndexedStack(
           index: _currentIndex,
           children: _screens,
