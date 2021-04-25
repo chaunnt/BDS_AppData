@@ -19,31 +19,27 @@ class _HomeScreenFilterState extends State<HomeScreenFilter> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.0,
-      width: 120.0,
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-          style: TextStyle(
-            fontSize: 15.0,
-            color: Palette.grey,
-          ),
-          hint: Text(widget.filterName),
-          value: _selectedOption,
-          items: widget.filterOptions
-              .map(
-                (option) => DropdownMenuItem(
-                  value: option,
-                  child: Text(option),
-                ),
-              )
-              .toList(),
-          onChanged: (value) {
-            setState(() {
-              _selectedOption = value;
-            });
-          },
+    return DropdownButtonHideUnderline(
+      child: DropdownButton<String>(
+        style: TextStyle(
+          fontSize: 12.0,
+          color: Palette.grey,
         ),
+        hint: Text(widget.filterName),
+        value: _selectedOption,
+        items: widget.filterOptions
+            .map(
+              (option) => DropdownMenuItem(
+                value: option,
+                child: Text(option),
+              ),
+            )
+            .toList(),
+        onChanged: (value) {
+          setState(() {
+            _selectedOption = value;
+          });
+        },
       ),
     );
   }

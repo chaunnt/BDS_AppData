@@ -7,4 +7,6 @@ class Texts {
   static final String datKhuCongNghiep = 'Đất khu công nghiệp';
   static final String khuVuc = 'Khu vực';
   static final String mucGia = 'Mức giá';
+  static final String raoBan = 'RAO BÁN';
+  static final String choThue = 'CHO THUÊ';
 }
