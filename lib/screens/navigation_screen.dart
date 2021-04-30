@@ -40,7 +40,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          child: HocadeAppBar(),
+          child: HodaceAppBar(),
           preferredSize: Size(
             double.infinity,
             screenSize.height / 10,
@@ -69,7 +69,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             child: BottomNavigationBar(
               onTap: _onBottomNavigationItemTap,
               currentIndex: _currentIndex,
-              selectedItemColor: Palette.hocadePurple,
+              selectedItemColor: Palette.hodacePurple,
               unselectedItemColor: Palette.grey,
               showSelectedLabels: false,
               showUnselectedLabels: false,

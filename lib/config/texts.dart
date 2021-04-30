@@ -1,5 +1,5 @@
 class Texts {
-  static final String hocade = 'HOCADE';
+  static final String hodace = 'HODACE';
   static final String bietThu = 'Biệt thự';
   static final String nhaPho = 'Nhà Phố';
   static final String datNen = 'Đất nền';
@@ -9,4 +9,6 @@ class Texts {
   static final String mucGia = 'Mức giá';
   static final String raoBan = 'RAO BÁN';
   static final String choThue = 'CHO THUÊ';
+  static final String aboutUs = 'ABOUT US';
+  static final String contact = 'CONTACT';
 }

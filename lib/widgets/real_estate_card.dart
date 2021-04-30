@@ -59,7 +59,7 @@ class RealEstateCard extends StatelessWidget {
                               child: Text(
                             realEstate.price,
                             style: TextStyle(
-                                color: Palette.hocadePurple,
+                                color: Palette.hodacePurple,
                                 fontWeight: FontWeight.w500),
                           )),
                         ),
@@ -105,7 +105,7 @@ class RealEstateCard extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        color: Palette.hocadePurple,
+                        color: Palette.hodacePurple,
                         icon: Icon(Icons.favorite_outline),
                         onPressed: () {},
                       )
