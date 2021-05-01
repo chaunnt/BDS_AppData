@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 48.0),
                   child: Container(
-                    color: Palette.hocadePurple,
+                    color: Palette.hodacePurple,
                   ),
                 ),
                 Padding(
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 48.0),
                   child: Container(
-                    color: Palette.hocadePurple,
+                    color: Palette.hodacePurple,
                   ),
                 ),
                 Padding(

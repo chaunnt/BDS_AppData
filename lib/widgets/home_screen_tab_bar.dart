@@ -39,9 +39,9 @@ class _HomeScreenTabBarState extends State<HomeScreenTabBar>
         return true;
       },
       child: TabBar(
-        labelColor: Palette.hocadePurple,
+        labelColor: Palette.hodacePurple,
         unselectedLabelColor: Palette.grey,
-        indicatorColor: Palette.hocadePurple,
+        indicatorColor: Palette.hodacePurple,
         controller: _tabController,
         tabs: _tabs,
         isScrollable: true,

@@ -1,3 +1,4 @@
+import 'package:bds_appdata/routes.dart';
 import 'package:bds_appdata/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BDS_App',
       home: NavigationScreen(),
+      routes: routes,
     );
   }
 }
