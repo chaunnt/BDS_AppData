@@ -22,4 +22,11 @@ class Texts {
   static final String contactUsPropaganda =
       'We live in Ho Chi Minh, a city with top CMI in Asian, which has been named as \'la perle de l\'Extrême-Orient\' (the pearl of the Far East). With direct flights from Europe, America, and many Asian countries, you can easily visit us.';
   static final String contactFooter = 'ShallWe@MakeFamousApp.com';
+  static final String aboutDescription = 'We\'re a team of people passionating about building apps that have a positive impact on people\'s lives. MFA team was founded in 2018 and has a healthy mix of business, technical, design, and marketing expertise. Even though we can\'t say for sure if your app will hit the jackpot, what we can promise you is that we\'ll use everything we\'ve learned in this lifetime to help you succed.';
+  static final String aboutValues = 'OUR VALUES';
+  static final String aboutCommitment = 'Commitment';
+  static final String aboutRelationship = 'Relationship';
+  static final String aboutPositive = 'Positive';
+  static final String aboutGrowth = 'Growth';
+  static final String aboutOurTeam = 'OUR TEAM';
 }

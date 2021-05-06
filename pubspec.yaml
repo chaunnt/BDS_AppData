@@ -51,6 +51,10 @@ flutter:
     - assets/images/living_room.png
     - assets/images/hodace_label.png
     - assets/images/hodace_box_small.png
+    - assets/images/commitment.png
+    - assets/images/growth.png
+    - assets/images/positive.png
+    - assets/images/relationship.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

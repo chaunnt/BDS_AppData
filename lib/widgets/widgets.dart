@@ -5,3 +5,6 @@ export 'real_estate_card.dart';
 export 'home_screen_interaction_row.dart';
 export 'contact_screen_card.dart';
 export 'contact_screen_info.dart';
+export 'our_values_row.dart';
+export 'our_team_card.dart';
+export 'our_team_item.dart';
