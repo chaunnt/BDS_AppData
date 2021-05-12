@@ -3,6 +3,9 @@ import 'package:bds_appdata/models/models.dart';
 import 'package:bds_appdata/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
+import '../data/data.dart';
+import '../screens/detail_screen.dart';
+
 class RealEstateCard extends StatelessWidget {
   final RealEstate realEstate;
 
@@ -15,7 +18,11 @@ class RealEstateCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 8.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
+               realEstate: realEstate
+          )));
+        },
         child: Container(
           width: screenSize.width * 2 / 3,
           child: Card(
