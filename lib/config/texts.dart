@@ -7,8 +7,8 @@ class Texts {
   static final String datKhuCongNghiep = 'Đất khu công nghiệp';
   static final String khuVuc = 'Khu vực';
   static final String mucGia = 'Mức giá';
-  static final String raoBan = 'RAO BÁN';
-  static final String choThue = 'CHO THUÊ';
+  static final String raoBan = 'Rao bán';
+  static final String choThue = 'Cho thuê';
   static final String aboutUs = 'ABOUT US';
   static final String contact = 'CONTACT';
   static final String contactUs = 'CONTACT US';
@@ -29,4 +29,5 @@ class Texts {
   static final String aboutPositive = 'Positive';
   static final String aboutGrowth = 'Growth';
   static final String aboutOurTeam = 'OUR TEAM';
+  static final String floor = ' tầng';
 }
