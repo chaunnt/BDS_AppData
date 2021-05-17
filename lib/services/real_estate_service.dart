@@ -1,4 +1,3 @@
-import 'package:bds_appdata/config/texts.dart';
 import 'package:bds_appdata/models/models.dart';
 import 'package:dio/dio.dart';
 
@@ -6,13 +5,13 @@ class RealEstateService {
   static final endPointUrl =
       'https://gateway.hodace.network/RealEstate/listFull';
 
-  static Future<List<RealEstate>> fetchSaleRealEstates(
-      String areaTypeName) async {
+  static Future<List<RealEstate>> fetchRealEstates(
+      String category, String type) async {
     final Dio dio = new Dio();
     final requestData = {
       'filter': {
-        'AreaTypeName': areaTypeName,
-        'SystemPostType': Texts.raoBan,
+        'AreaTypeName': category,
+        'SystemPostType': type,
       },
       'skip': 0,
       'limit': 10,

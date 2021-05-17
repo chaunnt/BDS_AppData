@@ -119,12 +119,12 @@ class HomeScreen extends StatelessWidget {
                                     height: constraints.maxHeight,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
-                                      itemCount:
-                                          dummyForRentRealEstateData.length,
+                                      itemCount: realEstateController
+                                          .rentRealEstateList.length,
                                       itemBuilder: (buildContext, index) =>
                                           RealEstateCard(
-                                        realEstate:
-                                            dummyForRentRealEstateData[index],
+                                        realEstate: realEstateController
+                                            .rentRealEstateList[index],
                                       ),
                                     ),
                                   ),

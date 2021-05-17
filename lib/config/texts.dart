@@ -1,7 +1,7 @@
 class Texts {
   static final String hodace = 'HODACE';
   static final String bietThu = 'Biệt thự';
-  static final String nhaPho = 'Nhà Phố';
+  static final String nhaPho = 'Nhà phố';
   static final String datNen = 'Đất nền';
   static final String chungCu = 'Chung cư';
   static final String datKhuCongNghiep = 'Đất khu công nghiệp';
@@ -30,4 +30,7 @@ class Texts {
   static final String aboutGrowth = 'Growth';
   static final String aboutOurTeam = 'OUR TEAM';
   static final String floor = ' tầng';
+  static final String thousand = 'ng';
+  static final String million = 'triệu';
+  static final String billion = 'tỷ';
 }

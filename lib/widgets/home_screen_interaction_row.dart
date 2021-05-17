@@ -9,34 +9,35 @@ class HomeScreenInteractionRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, IconData> _interactionItems = {
-      realEstate.interaction.views.toString(): Icons.remove_red_eye,
-      realEstate.interaction.comments.toString(): Icons.chat_bubble_outline,
-      realEstate.interaction.calls.toString(): Icons.call,
-      realEstate.interaction.shares.toString(): Icons.share,
+    final Map<IconData, String> _interactionItems = {
+      Icons.remove_red_eye: realEstate.interaction.views.toString(),
+      Icons.chat_bubble_outline: realEstate.interaction.comments.toString(),
+      Icons.call: realEstate.interaction.calls.toString(),
+      Icons.share: realEstate.interaction.shares.toString(),
     };
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: _interactionItems
-          .map(
-            (key, value) => MapEntry(
+          .map((key, value) {
+            return MapEntry(
               key,
               Row(
                 children: [
                   Text(
-                    key,
+                    value,
                     style: TextStyle(fontSize: 10.0, color: Palette.grey),
                   ),
+                  SizedBox(width: 4.0),
                   Icon(
-                    value,
+                    key,
                     size: 15.0,
                     color: Palette.grey,
                   ),
                 ],
               ),
-            ),
-          )
+            );
+          })
           .values
           .toList(),
     );

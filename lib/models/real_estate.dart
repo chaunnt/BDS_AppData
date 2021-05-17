@@ -1,5 +1,6 @@
 import 'package:bds_appdata/config/texts.dart';
 import 'package:bds_appdata/models/models.dart';
+import 'package:bds_appdata/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class RealEstate {
@@ -25,23 +26,26 @@ class RealEstate {
     final streetAddress = json['LocationFullAddress'].isEmpty
         ? ''
         : '${json['LocationFullAddress'].replaceAll(RegExp('- '), '')}, ';
+    final wardAddress = json['AreaWardName'].isEmpty
+        ? ''
+        : '${json['AreaWardName']}, ';
     final List<String> images = (json['ImagesHouse'] as List<dynamic>)
         .map((imageUrl) => imageUrl as String)
         .toList();
     return RealEstate(
-      name: '${json['AreaTypeName']}, ${json['HouseFloors']}, ${Texts.floor}',
+      name: '${json['AreaTypeName']}, ${json['HouseFloors']} ${Texts.floor}',
       description:
-          '${json['AreaWardName']}, ${json['AreaTypeName']}, ${json['AreaProvinceName']}',
+          '$wardAddress${json['AreaProvinceName']}',
       images: images,
       address:
-          '$streetAddress${json['AreaWardName']}, ${json['AreaProvinceName']}',
-      price: 'a',
+          '$streetAddress$wardAddress${json['AreaProvinceName']}',
+      price: PriceFormatter.formatter(json['ValueSalePrice']),
       type: RealEstateType.FORSALE,
       interaction: Interaction(
-        calls: 1,
-        shares: 1,
-        comments: 2,
-        views: 2,
+        calls: (json['phoneCallCount'] as int) ?? 0,
+        shares: (json['ShareCount'] as int) ?? 0,
+        comments: (json['messageCallCount'] as int) ?? 0,
+        views: (json['ViewCount'] as int) ?? 0,
       ),
     );
   }

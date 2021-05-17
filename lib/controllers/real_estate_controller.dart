@@ -11,26 +11,21 @@ class RealEstateController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchSaleRealEstates();
+    fetchRealEstates();
   }
 
-  void fetchSaleRealEstates() async {
+  void fetchRealEstates() async {
     isLoading(true);
-    final realEstates =
-        await RealEstateService.fetchSaleRealEstates(Texts.bietThu);
-    if (realEstates != null) {
-      saleRealEstateList.value = realEstates;
-      isLoading(false);
-    } else {
-      isLoading(false);
+    List<List<RealEstate>> response = await Future.wait<List<RealEstate>>([
+      RealEstateService.fetchRealEstates(Texts.bietThu, Texts.raoBan),
+      RealEstateService.fetchRealEstates(Texts.bietThu, Texts.choThue),
+    ]);
+    if (response[0] != null) {
+      saleRealEstateList.value = response[0];
     }
-  }
-
-  void fetchRentRealEstates() async {
-    final realEstates =
-        await RealEstateService.fetchSaleRealEstates(Texts.bietThu);
-    if (realEstates != null) {
-      rentRealEstateList.value = realEstates;
+    if (response[1] != null) {
+      rentRealEstateList.value = response[1];
     }
+    isLoading(false);
   }
 }
