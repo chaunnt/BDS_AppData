@@ -11,14 +11,14 @@ class RealEstateController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchRealEstates();
+    fetchRealEstates(Texts.all);
   }
 
-  void fetchRealEstates() async {
+  void fetchRealEstates(String category) async {
     isLoading(true);
     List<List<RealEstate>> response = await Future.wait<List<RealEstate>>([
-      RealEstateService.fetchRealEstates(Texts.bietThu, Texts.raoBan),
-      RealEstateService.fetchRealEstates(Texts.bietThu, Texts.choThue),
+      RealEstateService.fetchRealEstates(category, RealEstateType.FORSALE),
+      RealEstateService.fetchRealEstates(category, RealEstateType.FORRENT),
     ]);
     if (response[0] != null) {
       saleRealEstateList.value = response[0];
@@ -27,5 +27,9 @@ class RealEstateController extends GetxController {
       rentRealEstateList.value = response[1];
     }
     isLoading(false);
+  }
+
+  void updateRealEstateCategory(String category) {
+    fetchRealEstates(category);
   }
 }

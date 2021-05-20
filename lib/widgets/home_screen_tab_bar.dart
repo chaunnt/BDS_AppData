@@ -1,6 +1,8 @@
 import 'package:bds_appdata/config/palette.dart';
 import 'package:bds_appdata/config/texts.dart';
+import 'package:bds_appdata/controllers/controllers.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreenTabBar extends StatefulWidget {
   @override
@@ -10,6 +12,7 @@ class HomeScreenTabBar extends StatefulWidget {
 class _HomeScreenTabBarState extends State<HomeScreenTabBar>
     with SingleTickerProviderStateMixin {
   final List<Tab> _tabs = <Tab>[
+    Tab(text: Texts.all),
     Tab(text: Texts.bietThu),
     Tab(text: Texts.nhaPho),
     Tab(text: Texts.datNen),
@@ -23,6 +26,10 @@ class _HomeScreenTabBarState extends State<HomeScreenTabBar>
   void initState() {
     super.initState();
     _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController.addListener(() {
+      Get.find<RealEstateController>()
+          .updateRealEstateCategory(_tabs[_tabController.index].text);
+    });
   }
 
   @override

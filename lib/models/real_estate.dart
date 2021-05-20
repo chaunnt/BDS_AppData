@@ -22,25 +22,26 @@ class RealEstate {
     this.images,
   });
 
-  factory RealEstate.fromJson(Map<String, dynamic> json) {
+  factory RealEstate.fromJson(Map<String, dynamic> json, RealEstateType type) {
     final streetAddress = json['LocationFullAddress'].isEmpty
         ? ''
         : '${json['LocationFullAddress'].replaceAll(RegExp('- '), '')}, ';
-    final wardAddress = json['AreaWardName'].isEmpty
-        ? ''
-        : '${json['AreaWardName']}, ';
+    final wardAddress =
+        json['AreaWardName'].isEmpty ? '' : '${json['AreaWardName']}, ';
     final List<String> images = (json['ImagesHouse'] as List<dynamic>)
         .map((imageUrl) => imageUrl as String)
         .toList();
+    final String price = type == RealEstateType.FORSALE
+        ? json['ValueSalePrice']
+        : json['ValueRentPrice'];
     return RealEstate(
-      name: '${json['AreaTypeName']}, ${json['HouseFloors']} ${Texts.floor}',
-      description:
-          '$wardAddress${json['AreaProvinceName']}',
+      name:
+          '${json['AreaTypeName']}, ${json['HouseFloors']} ${Texts.floor}, ${json['LandFrontSides']} ${Texts.side}',
+      description: '$wardAddress${json['AreaProvinceName']}',
       images: images,
-      address:
-          '$streetAddress$wardAddress${json['AreaProvinceName']}',
-      price: PriceFormatter.formatter(json['ValueSalePrice']),
-      type: RealEstateType.FORSALE,
+      address: '$streetAddress$wardAddress${json['AreaProvinceName']}',
+      price: PriceFormatter.formatter(price),
+      type: type,
       interaction: Interaction(
         calls: (json['phoneCallCount'] as int) ?? 0,
         shares: (json['ShareCount'] as int) ?? 0,
