@@ -1,10 +1,8 @@
 import 'package:bds_appdata/config/palette.dart';
 import 'package:bds_appdata/models/models.dart';
+import 'package:bds_appdata/screens/screens.dart';
 import 'package:bds_appdata/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-
-import '../data/data.dart';
-import '../screens/detail_screen.dart';
 
 class RealEstateCard extends StatelessWidget {
   final RealEstate realEstate;

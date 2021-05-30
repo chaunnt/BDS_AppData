@@ -36,4 +36,6 @@ class Texts {
   static final String thousand = 'ng';
   static final String million = 'triệu';
   static final String billion = 'tỷ';
+  static final String contactNow = 'Liên hệ ngay';
+  static final String phoneNumber = '09493800004';
 }
