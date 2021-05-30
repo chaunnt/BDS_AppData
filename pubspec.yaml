@@ -30,7 +30,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_feather_icons: ^2.0.0
   font_awesome_flutter: ^9.0.0
-
+  flutter_native_splash: ^1.1.8+4
+  shared_preferences: ^0.4.2
+  firebase_core: ^0.7.0
+  firebase_auth: ^0.20.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +54,16 @@ flutter:
     - assets/images/living_room.png
     - assets/images/hodace_label.png
     - assets/images/hodace_box_small.png
+    - assets/images/commitment.png
+    - assets/images/growth.png
+    - assets/images/positive.png
+    - assets/images/relationship.png
+flutter_native_splash:
+  color: "#411fbc"
+  image: "assets/images/splash_screen.png"
+  android: true
+  ios: true
+  fullscreen: true
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
