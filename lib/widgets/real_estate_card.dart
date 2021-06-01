@@ -1,5 +1,6 @@
 import 'package:bds_appdata/config/palette.dart';
 import 'package:bds_appdata/models/models.dart';
+import 'package:bds_appdata/screens/screens.dart';
 import 'package:bds_appdata/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,13 @@ class RealEstateCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 8.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            DetailScreen.route,
+            arguments: {'realEstate': realEstate},
+          );
+        },
         child: Container(
           width: screenSize.width * 2 / 3,
           child: Card(
@@ -37,9 +44,18 @@ class RealEstateCard extends StatelessWidget {
                             topLeft: Radius.circular(16.0),
                             topRight: Radius.circular(16.0),
                           ),
-                          child: Image(
-                            image: AssetImage('assets/images/living_room.png'),
+                          child: Image.network(
+                            realEstate.images[0],
                             fit: BoxFit.cover,
+                            errorBuilder: (BuildContext context,
+                                Object exception, StackTrace stackTrace) {
+                              print('Error loading image ' +
+                                  exception.toString());
+                              return Image(
+                                image: AssetImage(
+                                    'assets/images/placeholder_image.png'),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -67,12 +83,12 @@ class RealEstateCard extends StatelessWidget {
                       Positioned(
                         bottom: 0.0,
                         child: Container(
-                          color: Colors.white.withOpacity(0.7),
-                          width: screenSize.width * 2 / 3 -
-                              screenSize.width * 4 / 15,
-                          height: 20.0,
-                          child: HomeScreenInteractionRow(realEstate: realEstate)
-                        ),
+                            color: Colors.white.withOpacity(0.7),
+                            width: screenSize.width * 2 / 3 -
+                                screenSize.width * 4 / 15,
+                            height: 20.0,
+                            child: HomeScreenInteractionRow(
+                                realEstate: realEstate)),
                       ),
                     ],
                   ),

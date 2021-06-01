@@ -34,10 +34,25 @@ class RealEstate {
     final String price = type == RealEstateType.FORSALE
         ? json['ValueSalePrice']
         : json['ValueRentPrice'];
+    final description =
+        '''${Texts.landRealConstructionSquare} ${json['LandRealConstructionSquare']} ${Texts.squareMeter}
+        \n${Texts.houseElectricity} ${json['HouseElectricity']}
+        \n${Texts.houseFloorsSquare} ${json['HouseFloorsSquare']}${Texts.squareMeter}
+        \n${Texts.houseFloorsType} ${json['HouseFloorsType']}
+        \n${Texts.houseFurnitureName} ${json['HouseFurnitureName']}
+        \n${json['HouseKitchens']} ${Texts.houseKitchens}
+        \n${json['HouseLivingRooms']} ${Texts.houseLivingRooms}
+        \n${json['HouseToilets']} ${Texts.houseToilets}
+        \n${Texts.juridicalContructionLimitation} ${json['JuridicalContructionLimitation']}
+        \n${Texts.juridicalStatusName} ${json['JuridicalStatusName']}
+        \n${Texts.juridicalUsingStatusName} ${json['JuridicalUsingStatusName']}
+        \n${Texts.landFrontSides} ${json['LandFrontSides']} ${Texts.frontSide}
+    ''';
+
     return RealEstate(
       name:
           '${json['AreaTypeName']}, ${json['HouseFloors']} ${Texts.floor}, ${json['LandFrontSides']} ${Texts.side}',
-      description: '$wardAddress${json['AreaProvinceName']}',
+      description: description,
       images: images,
       address: '$streetAddress$wardAddress${json['AreaProvinceName']}',
       price: PriceFormatter.formatter(price),

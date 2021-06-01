@@ -36,4 +36,20 @@ class Texts {
   static final String thousand = 'ng';
   static final String million = 'triệu';
   static final String billion = 'tỷ';
+  static final String contactNow = 'Liên hệ ngay';
+  static final String phoneNumber = '09493800004';
+  static final String landRealConstructionSquare = 'Diện tích xây dựng:';
+  static final String houseElectricity = 'Điện:';
+  static final String houseFloorsSquare = 'Diện tích sàn:';
+  static final String houseFloorsType = 'Sàn nhà:';
+  static final String houseFurnitureName = 'Nội thất:';
+  static final String houseKitchens = 'Phòng bếp';
+  static final String houseLivingRooms = 'Phòng khách';
+  static final String houseToilets = 'Phòng tắm';
+  static final String juridicalContructionLimitation = 'Giới hạn xây dựng:';
+  static final String juridicalStatusName = 'Tình trạng pháp lý:';
+  static final String juridicalUsingStatusName = 'Tình trạng sử dụng:';
+  static final String landFrontSides = 'Số mặt tiền:';
+  static final String frontSide = 'mặt tiền';
+  static final String squareMeter = 'm2';
 }

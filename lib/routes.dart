@@ -3,5 +3,6 @@ import 'package:flutter/material.dart';
 
 final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   ContactScreen.route: (context) => ContactScreen(),
-  AboutScreen.route: (context) => AboutScreen()
+  AboutScreen.route: (context) => AboutScreen(),
+  DetailScreen.route: (context) => DetailScreen(),
 };
