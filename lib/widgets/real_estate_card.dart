@@ -17,9 +17,11 @@ class RealEstateCard extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 8.0),
       child: InkWell(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
-               realEstate: realEstate
-          )));
+          Navigator.pushNamed(
+            context,
+            DetailScreen.route,
+            arguments: {'realEstate': realEstate},
+          );
         },
         child: Container(
           width: screenSize.width * 2 / 3,
@@ -42,9 +44,18 @@ class RealEstateCard extends StatelessWidget {
                             topLeft: Radius.circular(16.0),
                             topRight: Radius.circular(16.0),
                           ),
-                          child: Image(
-                            image: AssetImage('assets/images/living_room.png'),
+                          child: Image.network(
+                            realEstate.images[0],
                             fit: BoxFit.cover,
+                            errorBuilder: (BuildContext context,
+                                Object exception, StackTrace stackTrace) {
+                              print('Error loading image ' +
+                                  exception.toString());
+                              return Image(
+                                image: AssetImage(
+                                    'assets/images/placeholder_image.png'),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -72,12 +83,12 @@ class RealEstateCard extends StatelessWidget {
                       Positioned(
                         bottom: 0.0,
                         child: Container(
-                          color: Colors.white.withOpacity(0.7),
-                          width: screenSize.width * 2 / 3 -
-                              screenSize.width * 4 / 15,
-                          height: 20.0,
-                          child: HomeScreenInteractionRow(realEstate: realEstate)
-                        ),
+                            color: Colors.white.withOpacity(0.7),
+                            width: screenSize.width * 2 / 3 -
+                                screenSize.width * 4 / 15,
+                            height: 20.0,
+                            child: HomeScreenInteractionRow(
+                                realEstate: realEstate)),
                       ),
                     ],
                   ),

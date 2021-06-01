@@ -36,7 +36,7 @@ class RealEstateService {
         return null;
       }
     } catch (error) {
-      print('FETCHING REALESTATE FAILED: ' + error);
+      print('FETCHING REALESTATE FAILED: ' + error.toString());
       return null;
     }
   }

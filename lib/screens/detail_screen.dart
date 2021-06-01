@@ -1,28 +1,11 @@
 import 'package:bds_appdata/config/palette.dart';
 import 'package:bds_appdata/config/texts.dart';
-import 'package:bds_appdata/widgets/widgets.dart';
+import 'package:bds_appdata/widgets/detail_screen_carousel_container.dart';
 import 'package:flutter/material.dart';
 import '../models/real_estate.dart';
 
-class DetailScreen extends StatefulWidget {
-  final RealEstate realEstate;
-
-  const DetailScreen({this.realEstate});
-
-  @override
-  State<StatefulWidget> createState() {
-    return _DetailScreenState();
-  }
-}
-
-class _DetailScreenState extends State<DetailScreen> {
-  int _currentIndex = 0;
-
-  void onCarouselSlides(index, reason) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+class DetailScreen extends StatelessWidget {
+  static const route = '/detail';
 
   void _onContactNowPress() {}
 
@@ -33,6 +16,9 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, RealEstate>;
+    final RealEstate realEstate = routeArgs['realEstate'];
 
     return SafeArea(
       child: Scaffold(
@@ -64,14 +50,8 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
             ),
-            DetailScreenCarousel(
-              imageList: widget.realEstate.images,
-              onCarouselSlides: onCarouselSlides,
-            ),
-            SizedBox(height: 16.0),
-            DetailScreenCarouselIndicator(
-              imageList: widget.realEstate.images,
-              currentIndex: _currentIndex,
+            DetailScreenCarouselContainer(
+              realEstateImages: realEstate.images,
             ),
             SizedBox(height: 16.0),
             Expanded(
@@ -96,14 +76,14 @@ class _DetailScreenState extends State<DetailScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                widget.realEstate.price,
+                                realEstate.price,
                                 style: TextStyle(
                                     color: Palette.hodacePurple,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                widget.realEstate.address,
+                                realEstate.address,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                                 style: TextStyle(
@@ -120,7 +100,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                         IconButton(
                           color: Palette.hodacePurple,
-                          icon: Icon(Icons.favorite),
+                          icon: Icon(Icons.favorite_outline),
                           onPressed: () {},
                         )
                       ],
@@ -130,7 +110,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       child: Container(
                         width: double.infinity,
                         child: SingleChildScrollView(
-                          child: Text(widget.realEstate.description),
+                          child: Text(realEstate.description),
                         ),
                       ),
                     ),

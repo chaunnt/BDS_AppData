@@ -10,3 +10,4 @@ export 'our_team_card.dart';
 export 'our_team_item.dart';
 export 'detail_screen_carousel.dart';
 export 'detail_screen_carousel_indicator.dart';
+export 'detail_screen_carousel_container.dart';
