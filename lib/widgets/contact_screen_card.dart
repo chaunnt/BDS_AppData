@@ -38,7 +38,7 @@ class ContactScreenCard extends StatelessWidget {
                     image: AssetImage('assets/images/hodace_label.png'),
                   ),
                 ),
-                SizedBox(height: screenSize.height / 11),
+                Expanded(child: SizedBox.shrink()),
                 Text(
                   Texts.contactUs,
                   style: TextStyle(
@@ -75,7 +75,8 @@ class ContactScreenCard extends StatelessWidget {
                     fontSize: 12.0,
                   ),
                   textAlign: TextAlign.center,
-                )
+                ),
+                SizedBox(height: 32.0)
               ],
             ),
           ),

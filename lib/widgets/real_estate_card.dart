@@ -49,8 +49,6 @@ class RealEstateCard extends StatelessWidget {
                             fit: BoxFit.cover,
                             errorBuilder: (BuildContext context,
                                 Object exception, StackTrace stackTrace) {
-                              print('Error loading image ' +
-                                  exception.toString());
                               return Image(
                                 image: AssetImage(
                                     'assets/images/placeholder_image.png'),

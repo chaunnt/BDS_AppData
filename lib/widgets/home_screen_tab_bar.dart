@@ -27,8 +27,10 @@ class _HomeScreenTabBarState extends State<HomeScreenTabBar>
     super.initState();
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(() {
-      Get.find<RealEstateController>()
-          .updateRealEstateCategory(_tabs[_tabController.index].text);
+      if (_tabController.indexIsChanging) {
+        Get.find<RealEstateController>()
+            .updateRealEstateCategory(_tabs[_tabController.index].text);
+      }
     });
   }
 

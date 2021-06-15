@@ -1,13 +1,18 @@
 import 'package:bds_appdata/config/texts.dart';
 import 'package:bds_appdata/models/models.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class RealEstateService {
   static final endPointUrl =
       'https://gateway.hodace.network/RealEstate/listFull';
 
-  static Future<List<RealEstate>> fetchRealEstates(
-      String category, RealEstateType type) async {
+  static Future<List<RealEstate>> fetchRealEstates({
+    @required String category,
+    @required RealEstateType type,
+    String areaProvinceName,
+    String price,
+  }) async {
     final Dio dio = new Dio();
     final requestData = {
       'filter': {
@@ -21,6 +26,10 @@ class RealEstateService {
     };
     if (category == Texts.all) {
       (requestData['filter'] as Map<String, Object>).remove('AreaTypeName');
+    }
+    if (areaProvinceName != Texts.all) {
+      (requestData['filter'] as Map<String, Object>)['AreaProvinceName'] =
+          areaProvinceName;
     }
     try {
       final response = await dio.post(endPointUrl, data: requestData);

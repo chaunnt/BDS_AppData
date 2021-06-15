@@ -1,13 +1,16 @@
+import 'package:bds_appdata/config/texts.dart';
 import 'package:bds_appdata/models/models.dart';
 
 final List<String> dummyMucGiaFilterOptions = [
+  Texts.all,
   '500 triệu',
   '1 tỷ',
   '10 tỷ',
 ];
 
 final List<String> dummyKhuVucFilterOptions = [
-  'Hồ Chí Minh',
+  Texts.all,
+  'Thành phố Hồ Chí Minh',
   'Hà Nội',
   'Đà Nẵng',
 ];
