@@ -23,10 +23,10 @@ class PriceFormatter {
         return '${billion.toStringAsFixed(0)} ${Texts.billion} $millionText';
       } else {
         //handle other case of price here
-        return '0';
+        return '0 ${Texts.billion}';
       }
     } catch (e) {
-      return '0';
+      return '0 ${Texts.billion}';
     }
   }
 }

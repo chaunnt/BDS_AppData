@@ -57,7 +57,7 @@ class RealEstate {
       description: description,
       images: images,
       address: '$streetAddress$wardAddress${json['AreaProvinceName']}',
-      priceNumber: double.parse(price),
+      priceNumber: price.isEmpty ? 0 : double.parse(price),
       price: PriceFormatter.formatter(price),
       type: type,
       interaction: Interaction(

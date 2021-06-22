@@ -36,9 +36,13 @@ class RealEstateController extends GetxController {
     ]);
     if (response[0] != null) {
       saleRealEstateList.value = _filterPrice(response[0]);
+    } else {
+      saleRealEstateList.value = [];
     }
     if (response[1] != null) {
       rentRealEstateList.value = _filterPrice(response[1]);
+    } else {
+      rentRealEstateList.value = [];
     }
     isLoading(false);
   }
