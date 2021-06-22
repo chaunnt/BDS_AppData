@@ -8,6 +8,7 @@ class RealEstate {
   final String description;
   final List<String> images;
   final String address;
+  final num priceNumber;
   final String price;
   final Interaction interaction;
   final RealEstateType type;
@@ -15,6 +16,7 @@ class RealEstate {
   const RealEstate({
     @required this.name,
     @required this.description,
+    @required this.priceNumber,
     @required this.price,
     @required this.address,
     @required this.type,
@@ -55,6 +57,7 @@ class RealEstate {
       description: description,
       images: images,
       address: '$streetAddress$wardAddress${json['AreaProvinceName']}',
+      priceNumber: double.parse(price),
       price: PriceFormatter.formatter(price),
       type: type,
       interaction: Interaction(

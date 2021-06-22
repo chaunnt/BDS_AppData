@@ -1,4 +1,5 @@
 import 'package:bds_appdata/config/palette.dart';
+import 'package:bds_appdata/config/texts.dart';
 import 'package:bds_appdata/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,14 @@ class HomeScreenFilter extends StatelessWidget {
 
   final RealEstateController realEstateController = Get.find();
 
+  Future<void> _filterRealEstateWithArea(String areaFilter) async {
+    await realEstateController.filterRealEstateWithArea(areaFilter);
+  }
+
+  Future<void> _filterRealEstateWithPrice(String priceFilter) async {
+    await realEstateController.filterRealEstateWithPrice(priceFilter);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -24,7 +33,9 @@ class HomeScreenFilter extends StatelessWidget {
             color: Palette.grey,
           ),
           hint: Text(filterName),
-          value: realEstateController.areaProvinceFilter.value,
+          value: filterName == Texts.khuVuc
+              ? realEstateController.areaProvinceFilter.value
+              : realEstateController.priceFilter.value,
           items: filterOptions
               .map(
                 (option) => DropdownMenuItem(
@@ -33,9 +44,9 @@ class HomeScreenFilter extends StatelessWidget {
                 ),
               )
               .toList(),
-          onChanged: (value) {
-            realEstateController.filterRealEstateWithArea(value);
-          },
+          onChanged: filterName == Texts.khuVuc
+              ? _filterRealEstateWithArea
+              : _filterRealEstateWithPrice,
         ),
       ),
     );

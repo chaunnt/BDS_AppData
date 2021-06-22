@@ -1,7 +1,8 @@
 import 'package:bds_appdata/config/texts.dart';
+import 'package:bds_appdata/data/data.dart';
 import 'package:bds_appdata/models/models.dart';
 import 'package:bds_appdata/services/real_estate_service.dart';
-import 'package:flutter/material.dart';
+import 'package:bds_appdata/utils/utils.dart';
 import 'package:get/get.dart';
 
 class RealEstateController extends GetxController {
@@ -9,19 +10,16 @@ class RealEstateController extends GetxController {
   var rentRealEstateList = <RealEstate>[].obs;
   var isLoading = false.obs;
   var _currentRealEstateCategory;
-  var areaProvinceFilter = Texts.all.obs;
+  var areaProvinceFilter = dummyKhuVucFilterOptions[0].obs;
+  var priceFilter = dummyMucGiaFilterOptions[0].obs;
 
   @override
   void onInit() {
     super.onInit();
-    fetchRealEstates(category: Texts.all);
+    _fetchRealEstates(Texts.all);
   }
 
-  void fetchRealEstates({
-    @required String category,
-    String areaProvinceName,
-    String price,
-  }) async {
+  Future<void> _fetchRealEstates(String category) async {
     _currentRealEstateCategory = category;
     isLoading(true);
     List<List<RealEstate>> response = await Future.wait<List<RealEstate>>([
@@ -37,23 +35,32 @@ class RealEstateController extends GetxController {
       ),
     ]);
     if (response[0] != null) {
-      saleRealEstateList.value = response[0];
+      saleRealEstateList.value = _filterPrice(response[0]);
     }
     if (response[1] != null) {
-      rentRealEstateList.value = response[1];
+      rentRealEstateList.value = _filterPrice(response[1]);
     }
     isLoading(false);
   }
 
-  void updateRealEstateCategory(String category) {
-    fetchRealEstates(category: category);
+  List<RealEstate> _filterPrice(List<RealEstate> realEstateList) {
+    return realEstateList
+        .where((realEstate) =>
+            PriceFilter.filterPrice(realEstate, priceFilter.value))
+        .toList();
   }
 
-  void filterRealEstateWithArea(String areaProvinceName) {
+  void updateRealEstateCategory(String category) {
+    _fetchRealEstates(category);
+  }
+
+  Future<void> filterRealEstateWithArea(String areaProvinceName) async {
     areaProvinceFilter.value = areaProvinceName;
-    fetchRealEstates(
-      category: _currentRealEstateCategory,
-      areaProvinceName: areaProvinceName,
-    );
+    await _fetchRealEstates(_currentRealEstateCategory);
+  }
+
+  Future<void> filterRealEstateWithPrice(String filter) async {
+    priceFilter.value = filter;
+    await _fetchRealEstates(_currentRealEstateCategory);
   }
 }

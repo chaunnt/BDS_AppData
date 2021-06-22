@@ -10,8 +10,7 @@ class RealEstateService {
   static Future<List<RealEstate>> fetchRealEstates({
     @required String category,
     @required RealEstateType type,
-    String areaProvinceName,
-    String price,
+    @required String areaProvinceName,
   }) async {
     final Dio dio = new Dio();
     final requestData = {
