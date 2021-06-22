@@ -29,15 +29,16 @@ class RealEstateCard extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.0),
             ),
-            elevation: 10.0,
+            elevation: 2.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Flexible(
-                  flex: 5,
+                  flex: 6,
                   child: Stack(
                     children: [
                       Container(
+                        height: double.infinity,
                         width: double.infinity,
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
@@ -81,12 +82,13 @@ class RealEstateCard extends StatelessWidget {
                       Positioned(
                         bottom: 0.0,
                         child: Container(
-                            color: Colors.white.withOpacity(0.7),
-                            width: screenSize.width * 2 / 3 -
-                                screenSize.width * 4 / 15,
-                            height: 20.0,
-                            child: HomeScreenInteractionRow(
-                                realEstate: realEstate)),
+                          color: Colors.white.withOpacity(0.7),
+                          width: screenSize.width * 2 / 3 -
+                              screenSize.width * 4 / 15,
+                          height: 20.0,
+                          child:
+                              HomeScreenInteractionRow(realEstate: realEstate),
+                        ),
                       ),
                     ],
                   ),
@@ -94,11 +96,13 @@ class RealEstateCard extends StatelessWidget {
                 Flexible(
                   flex: 2,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 16.0, top: 8.0),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
